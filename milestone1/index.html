@@ -61,18 +61,19 @@
                     placeholder="Cerca o inizia una nuova chat">     
            </div>
   
-           <div class="user-content">
-            <div class="logo-users">
-              <img src="img/avatar_1.jpg" alt="">
-            </div>
-            <div class="text-users-dynamics">
-              <div class="container-text-users">
-                <h4>Michele</h4>
-                <p>Tutto fatto...</p>
+           <div v-for="(user, index) in users"
+                class="user-content"
+                :class="{'active': user.isActive} ">
+              <div class="logo-users">
+                  <img :src="user.img">
               </div>
-             
-            </div>
-          </div>
+              <div class="text-users-dynamics">
+                  <div class="container-text-users">
+                      <h4> {{user.name}} </h4>
+                      <p>{{user.lastMessage}} </p>
+                  </div>            
+              </div>
+           </div>
   
         </div>
       

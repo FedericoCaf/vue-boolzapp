@@ -76,6 +76,10 @@ body{
   height: 75px;
 }
 
+.user-content.active{
+  background-color: #E9EBEB
+}
+
 .user-content.blue{
   background-color: #8EDAFD;
 }
@@ -127,6 +131,7 @@ body{
   height: 100%;
   margin-left: 20px;
   padding-top: 10px;
+  
 }
 
 .logo-users .fa-bell-slash{
