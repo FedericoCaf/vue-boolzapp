@@ -1,0 +1,49 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.fc-container{
+  height: 100vh;
+  /* background-image: repeating-linear-gradient( #DCDBD3, #D3DBDC); */
+  background: linear-gradient(to top, #D3DBDC, #DDDBD1 50%, #eee 85%, #249688 75%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.window-container{
+  display: flex;
+  height: 95%;
+  width: 85%;
+  background-color: white;
+}
+
+.container-users{
+  width: 33%;
+  height: 100%;
+  background-color: white;
+}
+.container-chat{
+  width: 67%;
+  height: 100%;
+  background-image: url(../img/mine.jpg);
+}
+
+.header-user, .header-chat{
+ height: 75px;
+ background-color: #EAEAEA;
+ border: 1px solid lightgray;
+}
+
+.notifiche{
+  height: 75px;
+  background-color: #8EDAFD;
+}
+
+.input-cerca{
+  width: 100%;
+  height: 50px;
+  color: rgb(167, 162, 162)
+}
