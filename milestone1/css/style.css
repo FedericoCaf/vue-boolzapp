@@ -4,9 +4,12 @@
   padding: 0;
 }
 
+body{
+  font-family:'Roboto', sans-serif;
+}
+
 .fc-container{
   height: 100vh;
-  /* background-image: repeating-linear-gradient( #DCDBD3, #D3DBDC); */
   background: linear-gradient(to top, #D3DBDC, #DDDBD1 50%, #eee 85%, #249688 75%);
   display: flex;
   justify-content: center;
@@ -20,7 +23,7 @@
   background-color: white;
 }
 
-.container-users{
+.container-users-global{
   width: 33%;
   height: 100%;
   background-color: white;
@@ -32,18 +35,132 @@
 }
 
 .header-user, .header-chat{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
  height: 75px;
  background-color: #EAEAEA;
  border: 1px solid lightgray;
 }
 
-.notifiche{
+.logo-user-header{
+  display: flex;
+  width: 200px;
+  height: 100%;
+}
+
+.logo-users img{
+  width: 100%;
+}
+
+.icons-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 160px;
+  height: 100%;
+}
+
+.icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100%;
+  color: rgb(167, 162, 162);
+  font-size: 22px;
+}
+
+.user-content{
+  display: flex;
   height: 75px;
+}
+
+.user-content.blue{
   background-color: #8EDAFD;
 }
 
 .input-cerca{
+  display: flex;
   width: 100%;
   height: 50px;
-  color: rgb(167, 162, 162)
+  border: 1px solid lightgray;
+  margin: 10px 0;
 }
+
+.logo-users{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 73px;
+  height: 73px;
+  overflow: hidden;
+  border-radius: 50%;
+  /* border: 1px solid black; */
+}
+
+.container-search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  color:rgb(167, 162, 162);
+  font-size: 20px;
+}
+
+.logo-users .fa-search{
+  font-size: 20px;
+  color: rgb(20, 14, 14)
+}
+
+.text-users{
+  display: flex;
+  align-items: center;
+  width: calc(100% - 80px);
+  height: 100%;
+  /* border: 1px solid black; */
+  border: none;
+}
+
+.text-users-dynamics{
+  width: calc(100% - 80px);
+  height: 100%;
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+.logo-users .fa-bell-slash{
+  font-size: 25px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 10px;
+  color: #8EDAFD;
+}
+
+.container-text-users{
+  color: black;
+  width: 300px;
+}
+
+.user-content.blue p{
+  text-decoration: underline;
+  color: gray;
+  font-size: 13px;
+}
+
+.container-chat p, .container-user-dynamics p{
+  color: gray;
+  font-size: 13px;
+}
+
+.icons-header-chat{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-user-dynamics{
+  width: 95%;
+  margin: 0 auto;
+}
+

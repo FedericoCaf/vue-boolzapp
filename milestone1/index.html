@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Roboto:wght@300;400&family=Rubik&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-1/css/all.min.css" integrity="sha512-wDB6AYiYP4FO5Sxieamqy9wtpAY3qdHMqlhZecIEUu1YjkLw5gQf/4ZDgOzmCBAF5SheMjmugkpUSVoUrGbLkQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css">
 
@@ -15,13 +18,90 @@
 
     <div class="window-container">
 
-      <div class="container-users">
-        <div class="header-user"></div>
-        <div class="notifiche"></div>
-        <input class="input-cerca" v-model='stringCerca' type="text" placeholder="Cerca o inizia una nuova chat"> 
+      <div class="container-users-global">
+
+        <div class="header-user">
+          <div class="logo-user-header">
+            <div class="logo-users">
+              <img src="img/avatar_io.jpg" alt="">
+            </div>
+            <div class="text-users">
+              <strong>Nome Utente</strong> 
+            </div>
+          </div>
+          <div class="icons-header">
+            <div class="icon"> <i class="fas fa-circle-notch"></i> </div>
+            <div class="icon"> <i class="fas fa-comment-alt"></i> </div>
+            <div class="icon"> <i class="fas fa-ellipsis-v"></i> </div>
+          </div>
+        </div>
+
+        <div class="user-content blue">
+          <div class="logo-users">
+            <i class="fas fa-bell-slash"></i>
+          </div>
+          <div class="text-users">
+            <div class="container-text-users">
+              <h4>Ricevi notifiche di nuovi messaggi</h4>
+              <p>Attiva notifiche desktop</p>
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="container-user-dynamics">
+
+          <div class="input-cerca">
+            <div class="container-search">
+              <i class="fas fa-search"></i>
+            </div>     
+            <input class="text-users" 
+                    v-model='stringCerca' 
+                    type="text" 
+                    placeholder="Cerca o inizia una nuova chat">     
+           </div>
+  
+           <div class="user-content">
+            <div class="logo-users">
+              <img src="img/avatar_1.jpg" alt="">
+            </div>
+            <div class="text-users-dynamics">
+              <div class="container-text-users">
+                <h4>Michele</h4>
+                <p>Tutto fatto...</p>
+              </div>
+             
+            </div>
+          </div>
+  
+        </div>
+      
+
+
+        
       </div>
-      <div class="container-chat">
-        <div class="header-chat"></div>
+
+       <div class="container-chat">
+          <div class="header-chat">
+            <div class="user-content">
+              <div class="logo-users">
+                <img src="img/avatar_1.jpg" alt="">
+              </div>
+              <div class="text-users">
+                <div class="container-text-users">
+                  <h4>Michele</h4>
+                  <p>Ultimo accesso oggi alle 10/01/2021 16:15:22</p>
+                </div>
+               
+              </div>
+            </div>
+
+            <div class="icons-header-chat">
+              <div class="icon"> <i class="fas fa-search"></i> </div>
+              <div class="icon"> <i class="fas fa-paperclip"></i> </div>
+              <div class="icon"> <i class="fas fa-ellipsis-v"></i> </div>
+            </div>
+          </div>
       </div>
 
     </div>
