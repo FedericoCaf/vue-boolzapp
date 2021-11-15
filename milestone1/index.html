@@ -83,26 +83,46 @@
       </div>
 
        <div class="container-chat">
-          <div class="header-chat">
-            <div class="user-content">
-              <div class="logo-users">
-                <img src="img/avatar_1.jpg" alt="">
-              </div>
-              <div class="text-users">
-                <div class="container-text-users">
-                  <h4>Michele</h4>
-                  <p>Ultimo accesso oggi alle 10/01/2021 16:15:22</p>
+            <div class="header-chat">
+              <div class="user-content">
+                <div class="logo-users">
+                  <img src="img/avatar_1.jpg" alt="">
                 </div>
-               
+                <div class="text-users">
+                  <div class="container-text-users">
+                    <h4>Michele</h4>
+                    <p>Ultimo accesso oggi alle 10/01/2021 16:15:22</p>
+                  </div>
+                
+                </div>
               </div>
+
+              <div class="icons-header-chat">
+                <div class="icon"> <i class="fas fa-search"></i> </div>
+                <div class="icon"> <i class="fas fa-paperclip"></i> </div>
+                <div class="icon"> <i class="fas fa-ellipsis-v"></i> </div>
+              </div>
+
             </div>
 
-            <div class="icons-header-chat">
-              <div class="icon"> <i class="fas fa-search"></i> </div>
-              <div class="icon"> <i class="fas fa-paperclip"></i> </div>
-              <div class="icon"> <i class="fas fa-ellipsis-v"></i> </div>
+            <div class="container-main-chat">
+
             </div>
-          </div>
+
+            <div class="chat-input">
+              <div class="emoticons">
+                <i class="far fa-smile"></i>
+              </div>
+              <input class="chat-model" 
+                      v-model='stringCerca' 
+                      type="text" 
+                      placeholder="Scrivi un messaggio">   
+              <div class="vocal-message">
+                <i class="fas fa-microphone"></i>
+              </div>        
+              
+            </div>
+         
       </div>
 
     </div>
