@@ -76,6 +76,11 @@ body{
 .user-content{
   display: flex;
   height: 75px;
+  cursor: pointer;
+}
+
+.user-content:hover{
+  background-color: #f4f8f8
 }
 
 .user-content.active{
@@ -105,7 +110,6 @@ body{
   height: 73px;
   overflow: hidden;
   border-radius: 50%;
-  /* border: 1px solid black; */
 }
 
 .container-search{
@@ -127,14 +131,18 @@ body{
   align-items: center;
   width: calc(100% - 80px);
   height: 100%;
-  /* border: 1px solid black; */
   border: none;
+  
+}
+
+.text-users strong{
+  padding-left: 10px;
 }
 
 .text-users-dynamics{
   width: calc(100% - 100px);
   height: 100%;
-  margin-left: 20px;
+  margin-left: 10px;
   padding-top: 10px;
   
 }
@@ -148,8 +156,19 @@ body{
 }
 
 .container-text-users{
+  position: relative;
   color: black;
-  width: 300px;
+  width: 100%;
+  padding-left: 5px;
+}
+
+.container-text-users span{
+  display: block;
+  position:absolute;
+  top: 0;
+  right: 2px;
+  font-size: 10px;
+  color: #9ea4a5;
 }
 
 .user-content.blue p{
@@ -219,7 +238,8 @@ body{
   min-height: 50px;
 }
 
-.sent, .received{
+.sent{
+  position: relative;
   display: flex;
   align-items: center;
   align-self: end;
@@ -232,7 +252,23 @@ body{
   word-break: break-word;
 }
 
+.sent p, .received p{
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  font-size: 8px;
+}
+
 .received{
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  width: 250px;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-wrap: break-word;
+  word-break: break-word;
   align-self: start;
   background-color: white;
 }

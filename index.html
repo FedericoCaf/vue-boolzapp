@@ -63,22 +63,22 @@
   
            <div v-for="(user, index) in users"
                 class="user-content"
-                :class="{'active': user.isActive} ">
+                :class="{'active': index === activeUser}"
+                @click="showChat(index)">
               <div class="logo-users">
                   <img :src="user.img">
               </div>
               <div class="text-users-dynamics">
                   <div class="container-text-users">
+                      <span> {{user.messages[user.messages.length-1].date}} </span>
                       <h4> {{user.name}} </h4>
-                      <p>{{user.lastMessage}} </p>
+                      <p>{{user.messages[user.messages.length-1].message}} </p>
                   </div>            
               </div>
+    
            </div>
   
         </div>
-      
-
-
         
       </div>
 
@@ -86,12 +86,12 @@
             <div class="header-chat">
               <div class="user-content">
                 <div class="logo-users">
-                  <img src="img/avatar_1.jpg" alt="">
+                  <img :src="users[activeUser].img" alt="users[activeUser].name">
                 </div>
                 <div class="text-users">
                   <div class="container-text-users">
-                    <h4>Michele</h4>
-                    <p>Ultimo accesso oggi alle 10/01/2021 16:15:22</p>
+                    <h4> {{users[activeUser].name }} </h4>
+                    <p>Ultimo accesso oggi alle {{users[activeUser].messages[0].date}} </p>
                   </div>
                 
                 </div>
@@ -108,15 +108,10 @@
             <div class="container-main-chat">
               <div class="container-inside-main-chat">
 
-                  <div class="chat-message">
-                     <div class="sent">
-                       <span> Ciao, come stai?</span>
-                     </div>
-                  </div>
-
-                  <div class="chat-message">
-                     <div class="received">
-                      <span> Bene grazie </span>
+                  <div class="chat-message" v-for="(message, index) in users[activeUser].messages" >
+                     <div :class="{'sent': message.status==='sent', 'received': message.status==='received' }">
+                       <p> {{message.date}} </p>
+                       <span> {{message.message}} </span>
                      </div>
                   </div>
 
@@ -129,11 +124,12 @@
                 <i class="far fa-smile"></i>
               </div>
               <input class="chat-model" 
-                      v-model='stringCerca' 
+                      v-model='stringChat' 
                       type="text" 
                       placeholder="Scrivi un messaggio">   
               <div class="vocal-message">
-                <i class="fas fa-microphone"></i>
+            <!-- da cancellare il click -->
+                <i @click="showData()" class="fas fa-microphone"></i>
               </div>        
               
             </div>
