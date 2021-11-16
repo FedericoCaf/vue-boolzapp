@@ -71,12 +71,20 @@ body{
   height: 100%;
   color: rgb(167, 162, 162);
   font-size: 22px;
+  cursor: pointer;
 }
 
 .user-content{
   display: flex;
   height: 75px;
   cursor: pointer;
+}
+
+.user-content-header{
+  display: flex;
+  height: 75px;
+  cursor: pointer;
+  width: 500px;
 }
 
 .user-content:hover{
@@ -88,6 +96,7 @@ body{
 }
 
 .user-content.blue{
+  /* display: block; */
   background-color: #8EDAFD;
   overflow: hidden;
 }
@@ -100,6 +109,10 @@ body{
   margin: 10px 0;
   border-radius: 5px;
   padding-left: 10px;
+}
+
+.input-cerca input{
+  outline:none;
 }
 
 .logo-users{
@@ -140,6 +153,7 @@ body{
 }
 
 .text-users-dynamics{
+  display: block;
   width: calc(100% - 100px);
   height: 100%;
   margin-left: 10px;
@@ -160,7 +174,15 @@ body{
   color: black;
   width: 100%;
   padding-left: 5px;
+} 
+
+.container-text-users-header{
+  position: relative;
+  color: black;
+  width: 100%;
+  padding-left: 5px;
 }
+
 
 .container-text-users span{
   display: block;
@@ -215,6 +237,7 @@ body{
   border: none;
   border-radius: 10px;
   padding-left: 10px;
+  outline: none;
 }
 
 .emoticons, .vocal-message{
@@ -224,6 +247,7 @@ body{
   width: 70px;
   font-size: 25px;
   color:rgb(136, 130, 130);
+  cursor: pointer;
 }
 
 .container-inside-main-chat{
@@ -271,4 +295,24 @@ body{
   word-break: break-word;
   align-self: start;
   background-color: white;
+}
+
+
+@media (max-width: 1000px) {
+  .container-text-users span{
+    display: none;
+  }
+  
+}
+
+@media (max-width: 700px) {
+
+  .text-users-dynamics{
+    display: none;
+  }
+
+  .container-text-users h4, .container-text-users p{
+    display: none;
+  }
+
 }

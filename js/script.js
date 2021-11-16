@@ -9,7 +9,6 @@ data: {
         name: 'Michele',
         img: 'img/avatar_1.jpg',
         visible: true,
-        isActive: true,
         messages: [{
 
                 date: '10/01/2020 15:30:55',
@@ -33,7 +32,6 @@ data: {
         name: 'Fabio',
         img: 'img/avatar_2.jpg',
         visible: true,
-        isActive: false,
         messages: [{
 
                 date: '20/03/2020 16:30:00',
@@ -57,7 +55,6 @@ data: {
         name: 'Samuele',
         img: 'img/avatar_3.jpg',
         visible: true,
-        isActive: false,
         messages: [{
 
                 date: '28/03/2020 10:10:40',
@@ -81,7 +78,6 @@ data: {
         name: 'Luisa',
         img: 'img/avatar_6.jpg',
         visible: true,
-        isActive: false,
         messages: [{
 
                 date: '10/01/2020 15:30:55',
@@ -99,7 +95,7 @@ data: {
  
   stringCerca: '',
   stringChat: '',
-  activeUser: 0
+  activeUser: 0,
 
  },
 
@@ -110,14 +106,6 @@ data: {
     this.activeUser = index;
    
 },
-
-  showData(){
-   console.log(this.users[0].messages[1].message)
- }
-
-
-
-
 
  },
 
