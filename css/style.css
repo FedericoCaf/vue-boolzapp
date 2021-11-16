@@ -6,10 +6,12 @@
 
 body{
   font-family:'Roboto', sans-serif;
+  font-size: 14px;
 }
 
 .fc-container{
   height: 100vh;
+  width: 100%;
   background: linear-gradient(to top, #D3DBDC, #DDDBD1 50%, #eee 85%, #249688 75%);
   display: flex;
   justify-content: center;
@@ -30,6 +32,7 @@ body{
 }
 .container-chat{
   width: 67%;
+  min-width: 550px;
   background-image: url(../img/mine.jpg);
 }
 
@@ -81,6 +84,7 @@ body{
 
 .user-content.blue{
   background-color: #8EDAFD;
+  overflow: hidden;
 }
 
 .input-cerca{
@@ -171,6 +175,9 @@ body{
 }
 
 .container-main-chat{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: calc(100% - 150px);
 }
 
@@ -198,4 +205,34 @@ body{
   width: 70px;
   font-size: 25px;
   color:rgb(136, 130, 130);
+}
+
+.container-inside-main-chat{
+  width: 80%;
+  height: 80%;
+}
+
+.chat-message{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  min-height: 50px;
+}
+
+.sent, .received{
+  display: flex;
+  align-items: center;
+  align-self: end;
+  min-height: 40px;
+  width: 250px;
+  background-color: #D5FABA;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.received{
+  align-self: start;
+  background-color: white;
 }
