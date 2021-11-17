@@ -155,9 +155,16 @@ data: {
 
       },3500);
 
-      
-    
+
    },
+   
+   checkString(index){
+       let lastMessage = this.users[index].messages[this.users[index].messages.length - 1].message;
+       if(lastMessage.length > 30){
+           lastMessage = lastMessage.substr(0, 30)+'...'
+       }
+       return lastMessage;
+   }
 
  },
 

@@ -60,7 +60,7 @@
                     type="text" 
                     placeholder="Cerca o inizia una nuova chat">     
            </div>
-  
+           
            <div v-for="(user, index) in users"
                 class="user-content"
                 @click="showChat(index)"
@@ -73,7 +73,7 @@
                   <div class="container-text-users">
                       <span> {{user.messages[user.messages.length-1].date}} </span>
                       <h4> {{user.name}} </h4>
-                      <p>{{user.messages[user.messages.length-1].message}} </p>
+                      <p>{{checkString(index)}}</p>
                   </div>            
               </div>
     
