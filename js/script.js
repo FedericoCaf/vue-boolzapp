@@ -138,18 +138,22 @@ data: {
       
       console.log(this.users[0].messages);
 
+      let autoReply = this.isQuestion();
+      this.stringChat = '';
+
+
       setTimeout(() =>{
         let newReply = {
             date: msgDate,
-            message: this.isQuestion(),
+            message: autoReply,
             status: 'received'
           }
 
         this.users[index].messages.push(newReply);
         console.log('string chat', this.stringChat);
-        this.stringChat = '';
+        this.isTyping = false;
 
-      },2500);
+      },3500);
 
       
     

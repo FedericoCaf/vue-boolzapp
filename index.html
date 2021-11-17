@@ -92,7 +92,8 @@
                 <div class="text-users">
                   <div class="container-text-users-header">
                     <h4> {{users[activeUser].name }} </h4>
-                    <p>Ultimo accesso oggi alle {{users[activeUser].messages[0].date}} </p>
+                    <p v-if="isTyping">Sta scrivendo...</p>
+                    <p v-else> Ultimo accesso oggi alle {{users[activeUser].messages[0].date}} </p>
                   </div>
                 
                 </div>
