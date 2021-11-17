@@ -96,6 +96,7 @@ data: {
   stringCerca: '',
   stringChat: '',
   activeUser: 0,
+  isTyping: false
 
  },
 
@@ -105,7 +106,54 @@ data: {
     //console.log('Mostro statistiche del giocatore ad indice', index);
     this.activeUser = index;
    
-},
+  },
+
+  isQuestion(){
+    if((this.stringChat).includes('?')) {
+      return 'Non saprei'
+     } else{
+        return 'Ok'
+    }
+ },
+
+  insertMessage(index){
+
+    setTimeout(() =>{
+        this.isTyping = true;
+      },1000);
+    
+ 
+    let d = new Date;
+    msgDate = d.getDay()+'/'+d.getMonth()+'/'+d.getYear()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+    
+      let newMessage = {
+        date: msgDate,
+        message: this.stringChat,
+        status: 'sent'
+      }
+
+      console.log(newMessage.message);
+    //   this.stringChat = '';
+      this.users[index].messages.push(newMessage);
+      
+      console.log(this.users[0].messages);
+
+      setTimeout(() =>{
+        let newReply = {
+            date: msgDate,
+            message: this.isQuestion(),
+            status: 'received'
+          }
+
+        this.users[index].messages.push(newReply);
+        console.log('string chat', this.stringChat);
+        this.stringChat = '';
+
+      },2500);
+
+      
+    
+   },
 
  },
 

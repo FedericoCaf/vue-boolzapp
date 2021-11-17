@@ -63,8 +63,9 @@
   
            <div v-for="(user, index) in users"
                 class="user-content"
+                @click="showChat(index)"
                 :class="{'active': index === activeUser}"
-                @click="showChat(index)">
+               >
               <div class="logo-users">
                   <img :src="user.img">
               </div>
@@ -124,12 +125,12 @@
                 <i class="far fa-smile"></i>
               </div>
               <input class="chat-model" 
+                      @keyup.enter="insertMessage(activeUser)"
                       v-model='stringChat' 
                       type="text" 
                       placeholder="Scrivi un messaggio">   
               <div class="vocal-message">
-            <!-- da cancellare il click -->
-                <i @click="showData()" class="fas fa-microphone"></i>
+                <i class="fas fa-microphone"></i>
               </div>        
               
             </div>
