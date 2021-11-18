@@ -3,8 +3,6 @@
 
 const app = new Vue({
 
-  
-
 el: '#app',
 
 data: {
@@ -152,7 +150,7 @@ data: {
  },
 
  methods: {
-
+   //eliminazione del messaggio selezionato
   deleteMessage(){
     console.log('ciao');
     this.users[this.activeUser].messages.splice(this.activeMessage, 1);
@@ -161,7 +159,7 @@ data: {
   },
 
   filterUsers(){
-
+  //ciclo per rendere visibili o meno gli users a seconda dei caratteri inseriti nell'input
     for (let i = 0; i < this.users.length; i++) {
   
       if(this.users[i].name.toUpperCase().includes(this.stringCerca.toUpperCase())){
@@ -177,11 +175,10 @@ data: {
   },
 
   showChat(index) {
-    //console.log('Mostro statistiche del giocatore ad indice', index);
     this.activeUser = index;
-   
   },
 
+  //questo mi serve per chiudere il menu as tendina cliccando su un altro user
   closeDropMenu(){
    if(this.isClicked){
      this.isClicked=false;
@@ -189,7 +186,7 @@ data: {
   },
 
   showMenuDrop(index) {
-    //console.log('Mostro statistiche del giocatore ad indice', index);
+  //toggle del menu a tendina, se è chiuso si apre e viceversa
     this.activeMessage = index;
     this.isClicked = !this.isClicked
       
@@ -198,6 +195,7 @@ data: {
   },
 
   botReply(){
+    //piccolo bot con alcune risposte pronte in base al messaggio
     if((this.stringChat.toLowerCase()).includes('?')) {
       return 'Non saprei'
      } else if(this.stringChat.toLowerCase()=='ciao'
@@ -219,24 +217,16 @@ data: {
         this.isTyping = true;
       },1000);
     
-    // let d = new Date;
-    // msgDate = d.getDay()+'/'+d.getMonth()+'/'+d.getYear()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
-    
       let newMessage = {
         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
         message: this.stringChat,
         status: 'sent'
       }
-
       console.log(newMessage.message);
-    //   this.stringChat = '';
-      this.users[index].messages.push(newMessage);
-      
+      this.users[index].messages.push(newMessage);     
       console.log(this.users[0].messages);
-
       let autoReply = this.botReply();
       this.stringChat = '';
-
 
       setTimeout(() =>{
         let newReply = {
@@ -254,6 +244,7 @@ data: {
 
    },
    
+  //controlla se ci sono piu di 30 caratteri tronca il messaggio
    checkString(index){
        let lastMessage = this.users[index].messages[this.users[index].messages.length - 1].message;
        if(lastMessage.length > 30){
@@ -265,7 +256,5 @@ data: {
  },
 
   
- 
-
 });
 

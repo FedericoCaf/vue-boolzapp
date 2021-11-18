@@ -50,6 +50,7 @@ body{
   display: flex;
   width: 200px;
   height: 100%;
+  cursor: pointer;
 }
 
 .logo-users img{
@@ -99,7 +100,7 @@ body{
 }
 
 .user-content.active{
-  background-color: #d9dfdf
+  background-color: #e4ecec
 }
 
 .user-content.blue{

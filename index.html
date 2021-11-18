@@ -14,6 +14,7 @@
 </head>
 <body>
   <div id="app">
+
   <div class="fc-container">
 
     <div class="window-container">
@@ -54,7 +55,8 @@
           <div class="input-cerca">
             <div class="container-search">
               <i class="fas fa-search"></i>
-            </div>     
+            </div>
+    <!-- keyup scatena la funzione che filtra gli utenti in base ai caratteri digitati-->
             <input class="text-users" 
                     v-model='stringCerca'
                     @keyup="filterUsers()" 
@@ -62,12 +64,12 @@
                     placeholder="Cerca o inizia una nuova chat">     
            </div>
            
-           
+  <!-- genero gli users sulla sinitra, imposto il click che col bind rimuove l'user attivo se è stato filtrato oppure aggiunge la classe active se è stato cliccato -->        
            <div v-for="(user, index) in users"
                 class="user-content"
                 @click="showChat(index)"
                 :class="{'remove-user': user.visible===false, 'active': index === activeUser } ">
-                
+
               <div class="logo-users">
                   <img :src="user.img">
               </div>
@@ -80,10 +82,6 @@
               </div>
     
            </div>
-
-
-
-
   
         </div>
         
@@ -96,10 +94,11 @@
                   <img :src="users[activeUser].img" alt="users[activeUser].name">
                 </div>
                 <div class="text-users">
+  <!-- Aggiungo l'utente attivo in alto dinamicamente e con una funzione simulo che l'utente stia scrivendo durante il setTimeOut-->
                   <div class="container-text-users-header">
                     <h4> {{users[activeUser].name }} </h4>
                     <p v-if="isTyping">Sta scrivendo...</p>
-                    <p v-else> Ultimo accesso oggi alle {{users[activeUser].messages[0].date}} </p>
+                    <p v-else> Ultimo accesso oggi alle {{users[activeUser].messages[users[activeUser].messages.length-1].date}} </p>
                   </div>
                 
                 </div>
@@ -115,7 +114,7 @@
 
             <div class="container-main-chat">
               <div class="container-inside-main-chat">
-
+   <!-- Sezione dei messaggi dove gestisco il menu a tendina con la possibilita di cancellare il messaggio selezionato-->
                   <div class="chat-message" v-for="(message, index) in users[activeUser].messages">
                      <div :class="{'sent': message.status==='sent', 'received': message.status==='received' }">
                        <p> {{message.date}} </p>
@@ -145,7 +144,7 @@
               </div>
                
             </div>
-
+ <!-- input dove parte la funzione per aggiungere messaggi-->
             <div class="chat-input">
               <div class="emoticons">
                 <i class="far fa-smile"></i>
