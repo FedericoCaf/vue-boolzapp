@@ -27,6 +27,50 @@ data: {
             }
         ],
     },
+    {
+        name: 'Luca',
+        img: 'img/avatar_7.jpg',
+        visible: true,
+        messages: [{
+
+                date: '10/01/2020 15:30:55',
+                message: 'Come va il lavoro?',
+                status: 'sent'
+        },
+            {
+                date: '10/01/2020 15:50:00',
+                message: 'Procede tutto bene?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 16:15:22',
+                message: 'Alla grande!',
+                status: 'received'
+            }
+        ],
+    },
+    {
+        name: 'Abramo',
+        img: 'img/avatar_4.jpg',
+        visible: true,
+        messages: [{
+
+                date: '10/01/2020 15:30:55',
+                message: 'Sei andato a suonare?',
+                status: 'sent'
+        },
+            {
+                date: '10/01/2020 15:50:00',
+                message: 'Con la band intendo',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 16:15:22',
+                message: 'Si, mi sono divertito!',
+                status: 'received'
+            }
+        ],
+    },
 
     {
         name: 'Fabio',
@@ -46,7 +90,7 @@ data: {
             {
                 date: '20/03/2020 16:35:00',
                 message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                status: 'received'
+                status: 'sent'
             }
         ],
      },
@@ -102,6 +146,24 @@ data: {
 
  methods: {
 
+
+  filterUsers(){
+
+    for (let i = 0; i < this.users.length; i++) {
+  
+      if(this.users[i].name.toUpperCase().includes(this.stringCerca.toUpperCase())){
+        // this.users[i].visible = false;
+        console.log('visibile');
+        this.users[i].visible = true;
+      }else{
+        console.log('non visibile');
+        this.users[i].visible = false;
+      }
+    }
+    
+    console.log(this.users[0].visible);
+  },
+
   showChat(index) {
     //console.log('Mostro statistiche del giocatore ad indice', index);
     this.activeUser = index;
@@ -118,7 +180,9 @@ data: {
 
   insertMessage(index){
 
-    setTimeout(() =>{
+    if(this.stringChat.length > 0){
+
+      setTimeout(() =>{
         this.isTyping = true;
       },1000);
     
@@ -154,6 +218,7 @@ data: {
         this.isTyping = false;
 
       },3500);
+    }
 
 
    },
@@ -168,6 +233,7 @@ data: {
 
  },
 
+  
  
 
 });
