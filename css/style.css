@@ -99,7 +99,7 @@ body{
 }
 
 .user-content.active{
-  background-color: #E9EBEB
+  background-color: #d9dfdf
 }
 
 .user-content.blue{
@@ -235,7 +235,7 @@ body{
 }
 
 .chat-model{
-  width: 85%;
+  width: 90%;
   height: 70%;
   border: none;
   border-radius: 10px;
@@ -252,6 +252,7 @@ body{
   color:rgb(136, 130, 130);
   cursor: pointer;
 }
+
 
 .container-inside-main-chat{
   width: 80%;
@@ -326,6 +327,7 @@ body{
   padding: 13px;
   font-size: 13px;
   cursor: pointer;
+  color: #4a4c4d;
 }
 
 @media (max-width: 1000px) {

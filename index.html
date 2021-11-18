@@ -18,7 +18,7 @@
 
     <div class="window-container">
 
-      <div class="container-users-global">
+      <div @click="closeDropMenu()" class="container-users-global">
 
         <div class="header-user">
           <div class="logo-user-header">
@@ -66,9 +66,8 @@
            <div v-for="(user, index) in users"
                 class="user-content"
                 @click="showChat(index)"
-                :class="{'remove-user': user.visible===false} "
-                :class="{'active': index === activeUser}"
-               >
+                :class="{'remove-user': user.visible===false, 'active': index === activeUser } ">
+                
               <div class="logo-users">
                   <img :src="user.img">
               </div>
@@ -117,7 +116,7 @@
             <div class="container-main-chat">
               <div class="container-inside-main-chat">
 
-                  <div class="chat-message" v-for="(message, index) in users[activeUser].messages" >
+                  <div class="chat-message" v-for="(message, index) in users[activeUser].messages">
                      <div :class="{'sent': message.status==='sent', 'received': message.status==='received' }">
                        <p> {{message.date}} </p>
                        <span> {{message.message}} </span>
@@ -132,7 +131,9 @@
                           class="menu-drop">
                         <ul>
                           <li>Info messaggio</li>
-                          <li>Cancella messaggio</li>
+                          <li @click="deleteMessage()">
+                            Cancella messaggio
+                          </li>
                         </ul>
                       </div>
                       <div v-else>

@@ -146,27 +146,25 @@ data: {
   stringChat: '',
   activeUser: 0,
   isTyping: false,
-  activeMessage: '',
+  activeMessage: 0,
   isClicked: false
 
  },
 
  methods: {
 
-  // showDropMenu(){
-  //   this.menuDropVisible=!this.menuDropVisible;
-  //   console.log(this.menuDropVisible);
-  //   return this.menuDropVisible;
-    
-  // },
-
+  deleteMessage(){
+    console.log('ciao');
+    this.users[this.activeUser].messages.splice(this.activeMessage, 1);
+    console.log(this.users[this.activeMessage].messages);
+    console.log(this.activeMessage);
+  },
 
   filterUsers(){
 
     for (let i = 0; i < this.users.length; i++) {
   
       if(this.users[i].name.toUpperCase().includes(this.stringCerca.toUpperCase())){
-        // this.users[i].visible = false;
         console.log('visibile');
         this.users[i].visible = true;
       }else{
@@ -182,6 +180,12 @@ data: {
     //console.log('Mostro statistiche del giocatore ad indice', index);
     this.activeUser = index;
    
+  },
+
+  closeDropMenu(){
+   if(this.isClicked){
+     this.isClicked=false;
+   }
   },
 
   showMenuDrop(index) {
