@@ -1,4 +1,9 @@
+
+// dayjs.extend(window.dayjs_plugin_customParseFormat)
+
 const app = new Vue({
+
+  
 
 el: '#app',
 
@@ -140,11 +145,20 @@ data: {
   stringCerca: '',
   stringChat: '',
   activeUser: 0,
-  isTyping: false
+  isTyping: false,
+  activeMessage: '',
+  isClicked: false
 
  },
 
  methods: {
+
+  // showDropMenu(){
+  //   this.menuDropVisible=!this.menuDropVisible;
+  //   console.log(this.menuDropVisible);
+  //   return this.menuDropVisible;
+    
+  // },
 
 
   filterUsers(){
@@ -170,13 +184,28 @@ data: {
    
   },
 
-  isQuestion(){
-    if((this.stringChat).includes('?')) {
+  showMenuDrop(index) {
+    //console.log('Mostro statistiche del giocatore ad indice', index);
+    this.activeMessage = index;
+    this.isClicked = !this.isClicked
+      
+    console.log(this.isClicked);
+   
+  },
+
+  botReply(){
+    if((this.stringChat.toLowerCase()).includes('?')) {
       return 'Non saprei'
-     } else{
-        return 'Ok'
+     } else if(this.stringChat.toLowerCase()=='ciao'
+       || this.stringChat.toLowerCase()=='buongiorno'
+       || this.stringChat.toLowerCase()=='buonasera' 
+       || this.stringChat.toLowerCase()=='salve'){
+        return 'salve'
+    }else{
+      return 'ok'
     }
- },
+
+  },
 
   insertMessage(index){
 
@@ -186,12 +215,11 @@ data: {
         this.isTyping = true;
       },1000);
     
- 
-    let d = new Date;
-    msgDate = d.getDay()+'/'+d.getMonth()+'/'+d.getYear()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+    // let d = new Date;
+    // msgDate = d.getDay()+'/'+d.getMonth()+'/'+d.getYear()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
     
       let newMessage = {
-        date: msgDate,
+        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
         message: this.stringChat,
         status: 'sent'
       }
@@ -202,13 +230,13 @@ data: {
       
       console.log(this.users[0].messages);
 
-      let autoReply = this.isQuestion();
+      let autoReply = this.botReply();
       this.stringChat = '';
 
 
       setTimeout(() =>{
         let newReply = {
-            date: msgDate,
+            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
             message: autoReply,
             status: 'received'
           }
@@ -219,7 +247,6 @@ data: {
 
       },3500);
     }
-
 
    },
    
